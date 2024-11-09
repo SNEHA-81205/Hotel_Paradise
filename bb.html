@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hotel Paradise</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/pickmeup.min.js"></script>
+    <script type="text/javascript" src="dist/handleCounter.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/pickmeup.css">
+    <link rel="stylesheet" type="text/css" href="css/handle-counter.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script type="text/javascript" src="dist/jquery.scrollUp.js"></script>
+    <script type="text/javascript" src="dist/demo.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <header class="tm-header">
+        <img class="tm-logo" src="images/paradise-hotel-_4x.png" alt="Paradise Hotel">
+        <nav class="tm-nav">
+            <div>
+                <ul>
+                    <li class="tm-list"><a href="index.html">Home</a></li>
+                    <li class="tm-list"><a href="explore.html">Explore</a></li>
+                    <li class="tm-list"><a href="rooms.html">Rooms</a></li>
+                    <li class="tm-list"><a href="bb.html">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>    
+            </div>
+        </nav>
+    </header>
+    
+    <section class="tm-main">
+        <p>Booking</p>
+    </section>
+    
+    <section class="tm-booking">
+        <form id="bookingForm" onsubmit="return handleFormSubmit(event)">
+            <div class="tm-form1">
+                <input type="text" name="name" placeholder="Name">  
+                <input type="email" name="email" placeholder="E-mail"> 
+                <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+                
+                <label for="rooms" id="inlinelable">Rooms</label>
+                <select name="Rooms" id="rooms">
+                    <option value="luxury">Luxury Suite</option>
+                    <option value="deluxe">Deluxe Suite</option>
+                    <option value="premiers">Premier Suite</option>
+                    <option value="executive">Executive Suite</option>
+                    <option value="business">Business Twin Room</option>
+                    <option value="king">King Bed Room</option>
+                    <option value="common">Daily Use Bedrooms</option>
+                </select>
+                
+                <div class="tm-num1" id="handleCounter1">    
+                    <label for="number1">Number of Rooms</label><br/>
+                    <button type="button" class="counter-minus btn btn-primary">-</button>
+                    <input type="text" name="number1" id="number1" value="1">
+                    <button type="button" class="counter-plus btn btn-primary">+</button>
+                </div>
+                
+                <div class="tm-num2" id="handleCounter2">      
+                    <label for="number2">Number of Guests</label><br/>
+                    <button type="button" class="counter-minus btn btn-primary">-</button>
+                    <input type="text" name="number2" id="number2" value="1">
+                    <button type="button" class="counter-plus btn btn-primary">+</button>
+                </div>
+            </div>
+            
+            <div class="vertical-line"></div>
+            
+            <div class="tm-form2">
+                <div class="tm-cl">
+                    <label for="dateRange" class="arrival">Visiting Dates from Arrival to Departure</label>
+                    <input type="text" name="date1" class="range" readonly="readonly">
+                    <input type="submit" id="sub" value="Proceed">
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <button id="cancelBooking">Cancel Booking</button>
+    
+    <footer class="tm-footer">
+        <div class="tm-us">
+            <p class="bold">About Us</p>
+            <p>We are a part of chain of luxury hotels 
+                which extends all over the world. We 
+                provide a luxurious stay with various value
+                added and free services which will make
+                you visit us over and over again.</p>    
+        </div>
+       
+        <div class="tm-address">
+            <p class="bold">Address</p>
+            <p>415, Park Avenue, Bangalore
+                Phone : (211) 9275693451
+                Email : paradise@info.com</p>    
+        </div>
+        <br/>
+        <div class="tm-media">
+            <a href="#"> <img src="images/fb.png"></a>
+            <a href="#"> <img src="images/G.png"> </a>
+            <a href="#"> <img src="images/twittr.png"> </a>
+            <a href="#">  <img src="images/insta.png"> </a>
+        </div>
+    </footer>
+    
+    <script type="text/javascript" src="book.js"></script>
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const roomType = document.getElementById("rooms").value;
+
+            let paymentPage = "";
+
+            switch (roomType) {
+                case "luxury":
+                    paymentPage = "luxuryroompayment.html";
+                    break;
+                case "deluxe":
+                    paymentPage = "deluxeroompayment.html";
+                    break;
+                case "premiers":
+                    paymentPage = "premierroompayment.html";
+                    break;
+                case "executive":
+                    paymentPage = "executiveroompayment.html";
+                    break;
+                case "business":
+                    paymentPage = "businesstwinpayment.html";
+                    break;
+                case "king":
+                    paymentPage = "kingbedpayment.html";
+                    break;
+                case "common":
+                    paymentPage = "dailyusepayment.html";
+                    break;
+                default:
+                    alert("Please select a room type.");
+                    return;
+            }
+
+            // Redirect to the selected payment page
+            window.location.href = paymentPage;
+        }
+    </script>
+</body>
+</html>

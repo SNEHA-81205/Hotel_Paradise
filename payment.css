@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tm-header{
+    background-color: aliceblue;
+    display: block;
+    padding: 20px;
+    
+}
+
+.tm-logo{
+    align-content: center;
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+}
+
+.gap{
+    padding-top: 60px;
+}
+
+.tm-nav{
+   max-width: 90%;
+       border: 2px solid #3a382e;
+    display: block;
+  
+    margin: 30px auto 5px auto;
+  
+}
+
+.tm-nav div
+{
+    display: table;
+    padding: 10px;
+    margin: 0px auto;
+}
+
+.tm-nav div ul li{
+    display:inline-block;  
+   
+}
+
+
+.tm-nav div ul li a{
+    font-size: 1.8vmax;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: black;
+    line-height: 50px;
+    
+    
+}
+.tm-nav div ul li a:hover{
+    
+    color: #ec3c6a;
+}
+
+.tm-list::after{
+    content: url("../images/circle.png");
+  
+   
+}
+
+.tm-main{
+    background: #2ea9a1;
+  padding: 2%;
+}
+
+.tm-main p{
+  display: table;
+  max-width: 30%;
+  margin: 0 auto;
+  font-size: 4vw;
+   padding: 2%;
+  color: #fff;
+  font-weight: 700;
+}
